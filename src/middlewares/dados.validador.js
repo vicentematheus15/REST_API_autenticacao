@@ -1,4 +1,4 @@
-function cadastroValidador(schema){
+function dadosValidador(schema){
     return (req, res, next) => {
         try {
             const validated = schema.safeParse(req.body);
@@ -15,4 +15,4 @@ function cadastroValidador(schema){
     }
 }
 
-export default cadastroValidador;
+export default dadosValidador;

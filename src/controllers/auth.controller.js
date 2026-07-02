@@ -34,10 +34,7 @@ export async function cadastrar(req, res){
 
 export async function login(req, res) {
     try {
-        const {email, senha} = req.body;
-        if(!email || !senha){  //valida secampos foram preenchidos
-            return res.status(400).json({erro: 'Dados incompletos!'})
-        }
+        
         //valida se existe um usuario com o email informado no banco
         const usuario = await Usuario.findOne({where: { email }})
         if(!usuario){
