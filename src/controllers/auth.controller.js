@@ -4,10 +4,7 @@ import jwt from 'jsonwebtoken';
 
 export async function cadastrar(req, res){
     try {
-        const {nome, email, senha} = req.body;
-        if(!nome || !email || !senha){ //validação se os campos foram preenchidos
-            return res.status(400).json({erro: 'Dados incompletos!'})
-        }
+        
         //verifica se já existe algum usuário com esse email
         const emailExiste = await Usuario.findOne({where: { email } });
         if(emailExiste){
