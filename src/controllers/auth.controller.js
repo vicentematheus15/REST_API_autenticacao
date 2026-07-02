@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 
 export async function cadastrar(req, res){
     try {
+        const {nome, email, senha} = req.body;
         
         //verifica se já existe algum usuário com esse email
         const emailExiste = await Usuario.findOne({where: { email } });
@@ -34,6 +35,7 @@ export async function cadastrar(req, res){
 
 export async function login(req, res) {
     try {
+        const {email, senha} = req.body;
         
         //valida se existe um usuario com o email informado no banco
         const usuario = await Usuario.findOne({where: { email }})
